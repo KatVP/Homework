@@ -9,7 +9,7 @@ output: html_document
 
 Solving the system of equations via matrices:
 
-Enter the equations as matrices, with the coefficients of the variables as matrix a and the coefficents of the solutions as matrix b:
+Enter the equations as matrices, with the coefficients of the variables as matrix a and the coefficients of the solutions as matrix b:
 ```{r}
 a <- matrix(c(2,1,5,3),nrow = 2,ncol = 2)
 b <- matrix(c(33,19),nrow = 2,ncol = 1)
