@@ -1,0 +1,60 @@
+---
+title: "HW3"
+author: "K. Vande Pol"
+date: "9/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1) Write a function to calculate the mean:
+```{r}
+myaverage <- function(x) {
+y <- sum(x, na.rm = T)/length(x[!is.na(x)])
+return(y)
+}
+```
+Example:
+```{r}
+x <- c(1, 0, 6, 8, 3, NA)
+myaverage(x)
+```
+
+
+Download the following dataset and use it for questions 2-4: https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-01/key_crop_yields.csv
+
+```{r}
+data1 <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-01/key_crop_yields.csv", header = T)
+
+head(data1)
+```
+
+2) The range (first and last) of the variable Year.
+
+```{r}
+max(data1$Year)
+min(data1$Year)
+```
+The range of the variable Year is from 1961 to 2018.
+
+
+3) Using the function from #1, calculate the mean of the variable "Maize (tonnes per hectare)".  TIP: When there is missing data (NA), the functions mean, sum, and others, will result in NA. The solution to obtain the desired result is either remove all NAs or use the option na.rm = TRUE (see "?sum").
+
+
+```{r}
+myaverage(data1$Maize..tonnes.per.hectare)
+```
+The average of the variable Maize (tonnes per hectare) is 3.024496
+
+
+4) Save a file with the name of the variable "Entity".
+
+```{r}
+Entity <- data1$Entity
+
+write.table(Entity, file = "Entity.txt")
+```
+
+
